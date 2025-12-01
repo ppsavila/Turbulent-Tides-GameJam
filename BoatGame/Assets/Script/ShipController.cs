@@ -40,6 +40,8 @@ public class ShipController : MonoBehaviour
     private UiManager UiManager {get; set;}
     [field: SerializeField]
     private AudioSource AudioSource {get; set;}
+    [field: SerializeField]
+    private AudioSource GameOverSource {get; set;}
 
     [field: SerializeField]
     private AudioClip AudioClip {get; set;}
@@ -67,15 +69,17 @@ public class ShipController : MonoBehaviour
     
     [field: SerializeField]
     private Slider DEBUGROT{get; set;}
-        [field: SerializeField]
+    [field: SerializeField]
     private TextMeshProUGUI DEBUGTEXTROT{get; set;}
+
+    private bool _isDead = false;
 
     private void Awake()
     {
         _canTakeDamage = true;
         rb = GetComponent<Rigidbody>();
         rb.centerOfMass = new Vector3(0, -1f, 0); 
-
+        _isDead = false;
         DEBUGACC.value = 25f;
         DEBUGVELOCIDADE.value = 40;
         DEBUGROT.value = 9;
@@ -104,11 +108,12 @@ public class ShipController : MonoBehaviour
 
     void Update()
     {
-        if(Life <= 0)
+        if(Life <= 0 && !_isDead)
         {
-            if(!AudioSource.isPlaying)
-                AudioSource.PlayOneShot(AudioClip);
+            if(!GameOverSource.isPlaying)
+                GameOverSource.PlayOneShot(AudioClip);
             UiManager.GameOver();
+            _isDead = true;
         }
 
         if(Input.GetKeyDown(KeyCode.K))
@@ -165,7 +170,7 @@ public class ShipController : MonoBehaviour
     IEnumerator Cooldown()
     {
         _canTakeDamage = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         _canTakeDamage = true;
     }
 }

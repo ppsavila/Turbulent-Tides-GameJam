@@ -222,7 +222,7 @@ public class UiManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             if(!isPause && StartMenu.alpha != 1)
             {
