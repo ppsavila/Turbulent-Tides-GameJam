@@ -14998,8 +14998,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b19a54bc6db9d54590c15715dd038ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShipController
-  <Acceleration>k__BackingField: 25
-  <MaxSpeed>k__BackingField: 40
+  <Acceleration>k__BackingField: 28
+  <MaxSpeed>k__BackingField: 50
   <TurnSpeed>k__BackingField: 8
   <LifeFill>k__BackingField: {fileID: 785260911}
   <UiManager>k__BackingField: {fileID: 1693769327}

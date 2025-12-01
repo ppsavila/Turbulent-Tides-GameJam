@@ -9,10 +9,10 @@ using UnityEngine.UI;
 public class ShipController : MonoBehaviour
 {
     [field: SerializeField] 
-    private float Acceleration {get;set;} = 25f;
+    private float Acceleration {get;set;} = 28f;
 
     [field: SerializeField] 
-    private float MaxSpeed {get;set;} = 40f;
+    private float MaxSpeed {get;set;} = 50f;
 
     [field: SerializeField] 
     private float TurnSpeed {get;set;} = 8f;
