@@ -68,6 +68,8 @@ public class UiManager : MonoBehaviour
     private Button TheEndBtn {get;set;}
     [field: SerializeField]
     private Button RePlayBtn {get;set;}
+    [field: SerializeField]
+    private Button QuitBtn {get;set;}
 
     [field: Header("Audios")]
     [field: SerializeField]
@@ -210,6 +212,11 @@ public class UiManager : MonoBehaviour
             AudioSource.PlayOneShot(ClickClip);
             SceneManager.LoadScene(0);
         });
+        QuitBtn.onClick.AddListener(() =>
+        {
+            AudioSource.PlayOneShot(ClickClip);
+            Application.Quit();
+        });
 
     }
 
@@ -241,6 +248,7 @@ public class UiManager : MonoBehaviour
 
     public void GameOver()
     {
+        
         GameOverMenu.DOFade(1f, .2f).OnComplete(() =>
         {
             GameOverMenu.blocksRaycasts = true;

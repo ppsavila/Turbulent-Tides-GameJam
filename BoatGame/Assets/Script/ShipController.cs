@@ -103,7 +103,8 @@ public class ShipController : MonoBehaviour
     {
         if(Life <= 0)
         {
-            AudioSource.PlayOneShot(AudioClip);
+            if(!AudioSource.isPlaying)
+                AudioSource.PlayOneShot(AudioClip);
             UiManager.GameOver();
         }
 
@@ -143,6 +144,7 @@ public class ShipController : MonoBehaviour
         if(other.CompareTag("Obstacle") && _canTakeDamage)
         {
             Life -= 20;
+            Destroy(other.gameObject);
             StartCoroutine(Cooldown());
         }
         if(other.CompareTag("Terrain") && _canTakeDamage)
