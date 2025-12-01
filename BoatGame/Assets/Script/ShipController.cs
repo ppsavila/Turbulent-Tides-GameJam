@@ -44,6 +44,9 @@ public class ShipController : MonoBehaviour
     [field: SerializeField]
     private AudioClip AudioClip {get; set;}
 
+    [field: SerializeField]
+    private AudioClip DamageClip {get; set;}
+
 
     private Rigidbody rb;
 
@@ -108,7 +111,7 @@ public class ShipController : MonoBehaviour
             UiManager.GameOver();
         }
 
-        if(Input.GetKeyDown(KeyCode.Plus))
+        if(Input.GetKeyDown(KeyCode.K))
             DEBUG.alpha = DEBUG.alpha == 1? 0 : 1;
 
           
@@ -144,11 +147,13 @@ public class ShipController : MonoBehaviour
         if(other.CompareTag("Obstacle") && _canTakeDamage)
         {
             Life -= 20;
+            AudioSource.PlayOneShot(DamageClip);
             Destroy(other.gameObject);
             StartCoroutine(Cooldown());
         }
         if(other.CompareTag("Terrain") && _canTakeDamage)
         {
+            AudioSource.PlayOneShot(DamageClip);
             Life -= 20;
         }
         if(other.CompareTag("Winning"))

@@ -15004,6 +15004,7 @@ MonoBehaviour:
   <UiManager>k__BackingField: {fileID: 1693769327}
   <AudioSource>k__BackingField: {fileID: 1522271952}
   <AudioClip>k__BackingField: {fileID: 8300000, guid: 098b6b0a73117274f83f8961b9978f65, type: 3}
+  <DamageClip>k__BackingField: {fileID: 8300000, guid: b09f147e992d43b4baa1005d65376a6a, type: 3}
   <DEBUG>k__BackingField: {fileID: 1115513668}
   <DEBUGACC>k__BackingField: {fileID: 1120599775}
   <DEBUGTEXTACC>k__BackingField: {fileID: 1748035177}
